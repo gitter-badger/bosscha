@@ -1,0 +1,18 @@
+#markdown-editor {
+  min-height: 240px;;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.action-link {
+  cursor: pointer;
+}
+
+/** vendor overrides **/
+.sweet-alert button {
+  padding-top: 0px;
+  height: 2.3em;
+}
+

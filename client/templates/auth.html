@@ -1,0 +1,15 @@
+<template name="auth">
+  {{#unless currentUser}}
+    {{#if loginConfigured}}
+    <a class="button button-github">
+      <i class="icon-github"></i> Login with GitHub
+    </a>
+    {{/if}}
+  {{else}}
+  <a class="button" href="{{urlFor route='post.new'}}"><i class="icon-code"></i> New Post</a>
+    <a class="button button-clear button-logout">Logout</a>
+    <a href="/{{username}}">
+      {{> avatar userId=currentUser._id shape="rounded" class="float-right"}}
+    </a>
+  {{/unless}}
+</template>

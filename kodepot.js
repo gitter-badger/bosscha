@@ -1,23 +1,16 @@
-if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
+ROLES = { user: "user" }
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
-  });
+marked.setOptions({
+  langPrefix: "hljs ",
+  highlight: function (code) {
+    return highlight.highlightAuto(code).value;
+  }
+});
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
-}
+Avatar.setOptions({ generateCSS: false });
 
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
-}
+Posts = new Mongo.Collection("posts");
+
+Posts.before.insert(function (userId, doc) {
+  doc.createdAt = doc.updatedAt = Date.now();
+});

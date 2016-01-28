@@ -1,0 +1,38 @@
+<template name="postList">
+  <li>
+    <a href="{{pathFor route='post.show'}}">{{title}}</a>
+    {{#if isRemovable}}
+      {{> postRemove}}
+    {{/if}}
+  </li>
+</template>
+
+<template name="postRemove">
+  <a class="remove-post action-link">[remove]</a>
+</template>
+
+<template name="postNew">
+  {{> editor}}
+</template>
+
+<template name="editor">
+  <h3>New Post</h3>
+  <div class="row">
+    <div class="column">
+      <form class="new-post">
+        <input type="text" name="title" class="m-bottom">
+        <textarea id="markdown-editor" name="description"></textarea>
+        <input type="submit" class="button" value="Save">
+      </form>
+    </div>
+    <div class="column">
+      <section class="markdown-preview"></section>
+    </div>
+  </div>
+</template>
+
+<template name="post">
+  {{title}}
+  {{{text_html}}}
+</template>
+
