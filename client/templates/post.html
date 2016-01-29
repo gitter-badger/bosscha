@@ -12,7 +12,9 @@
 </template>
 
 <template name="postNew">
-  {{> editor}}
+  <section class="container" id="post-editor">
+    {{> editor}}
+  </section>
 </template>
 
 <template name="editor">
@@ -32,7 +34,9 @@
 </template>
 
 <template name="post">
-  <h1>{{title}}</h1>
-  <article>{{{text_html}}}</article>
+  <section class="container" id="article">
+    <h1>{{title}}</h1>
+    <article>{{{text_html}}}</article>
+  </section>
 </template>
 
