@@ -29,6 +29,8 @@ Router.route("/new", {
 
 Router.route("/+:_id", {
   name: 'post.show',
+  template: 'post',
+  loadingTemplate: 'loading',
   layoutTemplate: 'layout',
   subscriptions: function() {
     return Meteor.subscribe('post', this.params._id);
@@ -37,18 +39,20 @@ Router.route("/+:_id", {
     return Posts.findOne({_id: this.params._id});
   },
   action: function() {
-    if (this.ready()) {
-      this.render('post');
-    } else {
-      this.render('loading');
-    }
+    this.render();
   },
   onAfterAction: function() {
-    var title = this.data().title;
+    if (this.ready()) {
+      if (this.data() == undefined) {
+        return;
+      }
 
-    SEO.set({
-      title: title + ' - kodepot'
-    });
+      var title = this.data().title;
+
+      SEO.set({
+        title: title + ' - kodepot'
+      });
+    }
   }
 });
 
@@ -70,12 +74,18 @@ Router.route("/:username", {
     this.render();
   },
   onAfterAction: function() {
-    var fullName = this.data().profile.name;
-    var username = this.data().services.github.username;
+    if (this.ready()) {
+      if (this.data() == undefined) {
+        return;
+      }
 
-    SEO.set({
-      title: fullName + ' (' + username + ') '+ ' - kodepot'
-    });
+      var fullName = this.data().profile.name;
+      var username = this.data().services.github.username;
+
+      SEO.set({
+        title: fullName + ' (' + username + ') '+ ' - kodepot'
+      });
+    }
   }
 });
 
