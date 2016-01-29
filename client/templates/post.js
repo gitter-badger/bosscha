@@ -1,8 +1,4 @@
 Template.editor.events({
-  'keyup #markdown-editor': function(event) {
-    $('.markdown-preview').html(marked(event.target.value));
-  },
-
   'submit .new-post': function(event) {
     event.preventDefault();
 
@@ -18,6 +14,18 @@ Template.editor.events({
     Meteor.call('savePost', title, text, callback);
   }
 });
+
+Template.editor.rendered = function() {
+  var editor = CodeMirror.fromTextArea(this.find('#markdown-editor'), {
+    lineNumbers: true,
+    mode: "gfm",
+    theme: "railscasts"
+  });
+
+  editor.on("change", function(object) {
+    $('.markdown-preview').html(marked(object.getValue()));
+  });
+}
 
 Template.postList.helpers({
   isRemovable: function() {

@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "codemirror": {
+      "version": "5.11.0"
+    },
     "diff": {
       "version": "2.2.1"
     },

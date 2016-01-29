@@ -16,3 +16,7 @@
   height: 2.3em;
 }
 
+.CodeMirror {
+  min-height: 240px;
+  height: auto;
+}

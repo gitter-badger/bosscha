@@ -8,7 +8,8 @@ Npm.depends({
     "marked": "0.3.5",
     "highlight.js": "9.1.0",
     "diff": "2.2.1",
-    "sweetalert": "1.1.3"
+    "sweetalert": "1.1.3",
+    "codemirror": "5.11.0"
 });
 
 Package.onUse(function(api) {
@@ -22,4 +23,5 @@ Package.onUse(function(api) {
     api.export('marked');
     api.export('highlight');
     api.export('diff');
+    api.export('CodeMirror', 'client');
 });
