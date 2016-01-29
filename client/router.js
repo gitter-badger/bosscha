@@ -42,6 +42,13 @@ Router.route("/+:_id", {
     } else {
       this.render('loading');
     }
+  },
+  onAfterAction: function() {
+    var title = this.data().title;
+
+    SEO.set({
+      title: title + ' - kodepot'
+    });
   }
 });
 
@@ -61,6 +68,14 @@ Router.route("/:username", {
   },
   action: function() {
     this.render();
+  },
+  onAfterAction: function() {
+    var fullName = this.data().profile.name;
+    var username = this.data().services.github.username;
+
+    SEO.set({
+      title: fullName + ' (' + username + ') '+ ' - kodepot'
+    });
   }
 });
 

@@ -1,13 +1,15 @@
 ROLES = { user: "user" }
 
-marked.setOptions({
-  langPrefix: "hljs ",
-  highlight: function (code) {
-    return highlight.highlightAuto(code).value;
-  }
-});
+Meteor.startup(function() {
+  marked.setOptions({
+    langPrefix: "hljs ",
+    highlight: function (code) {
+      return highlight.highlightAuto(code).value;
+    }
+  });
 
-Avatar.setOptions({ generateCSS: false });
+  Avatar.setOptions({ generateCSS: false });
+});
 
 Posts = new Mongo.Collection("posts");
 
