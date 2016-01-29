@@ -8,7 +8,12 @@ Template.editor.events({
     var callback = function(error, result) {
       event.target.title.value = '';
       event.target.description.value = '';
-      $('.markdown-preview').html("");
+      $('#markdown-preview').html("");
+
+      var editor = $('#markdown-editor').next('.CodeMirror')[0].CodeMirror;
+
+      editor.setValue('');
+      editor.clearHistory();
     };
 
     Meteor.call('savePost', title, text, callback);
@@ -18,12 +23,13 @@ Template.editor.events({
 Template.editor.rendered = function() {
   var editor = CodeMirror.fromTextArea(this.find('#markdown-editor'), {
     lineNumbers: true,
+    autofocus: true,
     mode: "gfm",
-    theme: "railscasts"
+    theme: "paraiso-dark"
   });
 
   editor.on("change", function(object) {
-    $('.markdown-preview').html(marked(object.getValue()));
+    $('#markdown-preview').html(marked(object.getValue()));
   });
 }
 

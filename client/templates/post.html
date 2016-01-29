@@ -18,15 +18,15 @@
 <template name="editor">
   <h3>New Post</h3>
   <div class="row">
-    <div class="column">
+    <div class="column column-50">
       <form class="new-post">
-        <input type="text" name="title" class="m-bottom">
+        <input type="text" name="title">
         <textarea id="markdown-editor" name="description"></textarea>
         <input type="submit" class="button" value="Save">
       </form>
     </div>
-    <div class="column">
-      <section class="markdown-preview"></section>
+    <div class="column column-50">
+      <section id="markdown-preview"></section>
     </div>
   </div>
 </template>

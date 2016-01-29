@@ -4,7 +4,7 @@ Meteor.startup(function() {
   marked.setOptions({
     langPrefix: "hljs ",
     highlight: function (code) {
-      return highlight.highlightAuto(code).value;
+      return hljs.highlightAuto(code).value;
     }
   });
 

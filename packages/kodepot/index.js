@@ -1,3 +1,1 @@
-marked = Npm.require('marked');
-highlight = Npm.require("highlight.js");
-diff = Npm.require('diff');
+hljs = Npm.require("highlight.js");
