@@ -66,7 +66,11 @@ Router.route("/+:_id", {
   },
   seo: {
     title: function() {
-      return this.data().title;
+      if (this.data() === undefined) {
+        return "404";
+      } else {
+        return this.data().title;
+      }
     }
   }
 });
@@ -90,6 +94,10 @@ Router.route("/:username", {
   },
   seo: {
     title: function() {
+      if (this.data() === undefined) {
+        return "404";
+      }
+
       var fullName = this.data().profile.name;
       var username = this.data().services.github.username;
 
