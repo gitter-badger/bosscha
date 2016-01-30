@@ -4,7 +4,7 @@ Template.auth.helpers({
     },
 
     username: function() {
-      return Util.username();
+      return Meteor.user().profile.username;
     }
 });
 

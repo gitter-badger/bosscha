@@ -87,7 +87,7 @@ Router.route("/:username", {
     ];
   },
   data: function() {
-    return Meteor.users.findOne({ 'services.github.username': this.params.username });
+    return Meteor.users.findOne({ 'profile.username': this.params.username });
   },
   action: function() {
     this.render();
@@ -99,7 +99,7 @@ Router.route("/:username", {
       }
 
       var fullName = this.data().profile.name;
-      var username = this.data().services.github.username;
+      var username = this.data().profile.username;
 
       return fullName + ' (' + username + ') ';
     }

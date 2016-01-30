@@ -1,9 +1,14 @@
+/**
+ * Note: 'services.github.username' is required by avatar package.
+ **/
+
 Meteor.publish(null, function() {
     if (this.userId) {
         return Meteor.users.find({ _id: this.userId }, { fields: {
-            "services.github.id": 1,
             "services.github.username": 1,
-            "services.github.email": 1
+            "profile.username": 1,
+            "profile.email": 1,
+            "profile.name": 1
         } });
     } else {
         this.ready();
@@ -19,7 +24,7 @@ Meteor.publish('recentPosts', function() {
 });
 
 Meteor.publish('userPosts', function(username) {
-  var user = Meteor.users.findOne({ 'services.github.username': username }, { _id: 1 });
+  var user = Meteor.users.findOne({ 'profile.username': username }, { _id: 1 });
 
   if (user === undefined) {
     return this.ready();
@@ -30,10 +35,10 @@ Meteor.publish('userPosts', function(username) {
 
 Meteor.publish('user', function(username) {
   return Meteor.users.find(
-      { 'services.github.username': username },
+      { 'profile.username': username },
       { fields: {
         "profile.name": 1,
-        "services.github.id": 1,
+        "profile.username": 1,
         "services.github.username": 1
       }}
   );

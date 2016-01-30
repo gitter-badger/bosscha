@@ -7,8 +7,6 @@ Meteor.startup(function() {
       return hljs.highlightAuto(code).value;
     }
   });
-
-  Avatar.setOptions({ generateCSS: false });
 });
 
 Posts = new Mongo.Collection("posts");
