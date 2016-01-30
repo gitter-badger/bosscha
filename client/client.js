@@ -4,5 +4,3 @@ Meteor.startup(function() {
     gravatarDefault: "retro"
   });
 });
-
-PostSubs = new SubsManager();
