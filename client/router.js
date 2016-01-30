@@ -3,6 +3,12 @@
 // tag:  kodepot.com/$meteor
 
 Router.plugin('dataNotFound', { notFoundTemplate: 'notFound' });
+Router.plugin('seo', {
+  defaults: {
+    suffix: 'Kodepot',
+    separator: ' - '
+  }
+});
 
 Router.route("/", {
   name: 'home',
@@ -15,6 +21,11 @@ Router.route("/", {
   },
   action: function() {
     this.render();
+  },
+  seo: {
+    title: function() {
+      return "Bicara <kode>, bicara Indonesia";
+    }
   }
 });
 
@@ -41,17 +52,9 @@ Router.route("/+:_id", {
   action: function() {
     this.render();
   },
-  onAfterAction: function() {
-    if (this.ready()) {
-      if (this.data() == undefined) {
-        return;
-      }
-
-      var title = this.data().title;
-
-      SEO.set({
-        title: title + ' - kodepot'
-      });
+  seo: {
+    title: function() {
+      return this.data().title;
     }
   }
 });
@@ -73,18 +76,12 @@ Router.route("/:username", {
   action: function() {
     this.render();
   },
-  onAfterAction: function() {
-    if (this.ready()) {
-      if (this.data() == undefined) {
-        return;
-      }
-
+  seo: {
+    title: function() {
       var fullName = this.data().profile.name;
       var username = this.data().services.github.username;
 
-      SEO.set({
-        title: fullName + ' (' + username + ') '+ ' - kodepot'
-      });
+      return fullName + ' (' + username + ') ';
     }
   }
 });
