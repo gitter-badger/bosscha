@@ -6,17 +6,12 @@
     "jsdiff": "2.2.1",
     "sweetalert": "1.1.3",
     "codemirror": "5.11.0",
-    "highlightjs": "9.1.0",
-    "spin.js": "2.3.2"
+    "highlightjs": "9.1.0"
   },
   "overrides": {
     "milligram": { "arch": ["client"] },
     "marked": { "arch": ["client", "server"] },
     "sweetalert": { "arch": ["client"] },
-    "spin.js": {
-      "main": ["spin.js", "jquery.spin.js"],
-      "arch": ["client"]
-    },
     "codemirror": {
       "main": [
         "lib/codemirror.js",
