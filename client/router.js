@@ -3,6 +3,18 @@
 // tag:  kodepot.com/$meteor
 
 Router.plugin('dataNotFound', { notFoundTemplate: 'notFound' });
+
+Router.plugin('auth', {
+  authenticate: {
+    route: 'home'
+  },
+  except: [
+    "home",
+    "post.show",
+    "user.show"
+  ]
+});
+
 Router.plugin('seo', {
   defaults: {
     suffix: 'Kodepot',

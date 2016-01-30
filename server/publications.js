@@ -11,7 +11,7 @@ Meteor.publish(null, function() {
 });
 
 Meteor.publish('post', function(id) {
-  return Posts.find({ _id: id }, { fields { text: 0 }});
+  return Posts.find({ _id: id }, { fields: { text: 0 }});
 })
 
 Meteor.publish('recentPosts', function() {
