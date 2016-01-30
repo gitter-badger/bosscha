@@ -8,7 +8,7 @@ Router.route("/", {
   name: 'home',
   layoutTemplate: 'layout',
   subscriptions: function() {
-    return Meteor.subscribe('recentPosts');
+    return PostSubs.subscribe('recentPosts');
   },
   data: function() {
     return Posts.find({}, { sort: { createdAt: -1 } });
@@ -33,7 +33,7 @@ Router.route("/+:_id", {
   loadingTemplate: 'loading',
   layoutTemplate: 'layout',
   subscriptions: function() {
-    return Meteor.subscribe('post', this.params._id);
+    return PostSubs.subscribe('post', this.params._id);
   },
   data: function() {
     return Posts.findOne({_id: this.params._id});
@@ -64,7 +64,7 @@ Router.route("/:username", {
   waitOn: function() {
     return [
       Meteor.subscribe('user', this.params.username),
-      Meteor.subscribe('userPosts', this.params.username)
+      PostSubs.subscribe('userPosts', this.params.username)
     ];
   },
   data: function() {
