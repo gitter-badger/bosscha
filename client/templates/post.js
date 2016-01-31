@@ -70,6 +70,9 @@ Template.postNew.onRendered(function() {
 Template.post.onCreated(function() {
   var self = this;
   self.ready = new ReactiveVar();
+  self.postReady = function() {
+    return self.ready.get();
+  };
   self.autorun(function() {
     var postId = FlowRouter.getParam('id');
     var handle = PostSubs.subscribe('post', postId);
@@ -78,16 +81,15 @@ Template.post.onCreated(function() {
 });
 
 Template.post.onRendered(function() {
-  if (this.ready.get()) {
-    var post = Posts.findOne({_id: FlowRouter.getParam('id')}, { fields: {
-      title: 1}});
+  if (this.postReady()) {
+    var post = Posts.findOne({_id: FlowRouter.getParam('id')}, { fields: { title: 1}});
     DocHead.setTitle(post.title + " - Kodepot");
   }
 });
 
 Template.post.helpers({
-  isReady: function() {
-    return Template.instance().ready.get();
+  postReady: function() {
+    return Template.instance().postReady();
   },
   post: function() {
     return Posts.findOne({_id: FlowRouter.getParam('id')});

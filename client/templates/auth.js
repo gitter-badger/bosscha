@@ -9,7 +9,7 @@ Template.auth.events({
     Meteor.loginWithGithub({}, function(error) {
       if (Meteor.user()) {
         PostSubs.clear();
-        Router.go("/");
+        FlowRouter.go("home");
       }
     });
   },
@@ -17,7 +17,7 @@ Template.auth.events({
   'click .button-logout': function() {
     Meteor.logout(function(error) {
       PostSubs.clear();
-      Router.go("/");
+      FlowRouter.go("home");
     });
   },
 

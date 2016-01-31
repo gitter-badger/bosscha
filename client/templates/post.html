@@ -35,7 +35,7 @@
 
 <template name="post">
   <section class="container" id="article">
-    {{#if isReady}}
+    {{#if postReady}}
       {{#with post}}
         <h1>{{title}}</h1>
         <article>{{{contentHtml}}}</article>
