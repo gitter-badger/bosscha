@@ -1,12 +1,12 @@
 Meteor.methods({
-  savePost: function(title, text) {
+  savePost: function(title, content) {
     var now = Date.now();
 
     Posts.insert({
       authorId: this.userId,
       title: title,
-      text: text,
-      text_html: marked(text)
+      content: content,
+      contentHtml: marked(contentHtml)
     });
   },
   removePost: function(id) {

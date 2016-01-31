@@ -20,7 +20,7 @@ Meteor.publish('post', function(id) {
 })
 
 Meteor.publish('recentPosts', function() {
-  return Posts.find({}, { fields: { text: 0, text_html: 0 }, sort: { createdAt: -1 }});
+  return Posts.find({}, { fields: { content: 0, contentHtml: 0 }, sort: { createdAt: -1 }});
 });
 
 Meteor.publish('userPosts', function(username) {
@@ -29,7 +29,7 @@ Meteor.publish('userPosts', function(username) {
   if (user === undefined) {
     return this.ready();
   } else {
-    return Posts.find({ authorId: user._id }, { fields: { text: 0, text_html: 0 }});
+    return Posts.find({ authorId: user._id }, { fields: { content: 0, contentHtml: 0 }});
   }
 });
 
