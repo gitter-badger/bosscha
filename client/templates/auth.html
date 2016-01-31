@@ -1,25 +1,15 @@
 <template name="auth">
-  <ul class="navigation-list float-right">
   {{#unless currentUser}}
-    {{#if loginConfigured}}
-    <li class="navigation-item">
-      <a class="button button-github">
-        <i class="icon-github"></i> Login with GitHub
-      </a>
-    </li>
-    {{/if}}
+    <ul class="inline-list">
+      <li><a class="button button-github"><i class="icon-github"></i> Login with GitHub</a></li>
+    </ul>
   {{else}}
-    <li class="navigation-item">
-      <a class="navigation-link button" href="{{urlFor route='post.new'}}"><i class="icon-code"></i> New Post</a>
-    </li>
-    <li class="navigation-item">
-      <a class="navigation-link button-logout action-link">Logout</a>
-    </li>
-    <li class="navigation-item">
-      <a href="/{{username}}">
-        {{> avatar userId=currentUser._id shape="rounded" class="float-right"}}
-      </a>
-    </li>
+    <a href="/{{username}}">
+      {{> avatar userId=currentUser._id shape="rounded"}}
+    </a>
+    <ul class="navigation-list inline-list float-right">
+      <li><a class="button" href="{{urlFor route='post.new'}}"><i class="icon-code"></i> New Post</a></li>
+      <li><a class="button button-outline button-logout action-link">Logout</a></li>
+    </ul>
   {{/unless}}
-  </ul>
 </template>

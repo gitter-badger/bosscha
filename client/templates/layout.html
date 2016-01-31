@@ -1,13 +1,17 @@
 <template name="layout">
-  <main class="wrapper">
-    <nav class="navigation">
-      <section class="container">
-        <a class="navigation-title" href="/">
-          <h1 class="title">Kodepot</h1>
-        </a>
-        {{> auth}}
-      </section>
-    </nav>
-    {{> yield}}
-  </main>
+  <nav class="navigation">
+    <section class="container">
+      <div class="row">
+        <div class="column column-50">
+          <a class="site-title" href="/">
+            <h1 class="title">Kodepot</h1>
+          </a>
+        </div>
+        <div class="column column-50 float-right">
+          {{> auth}}
+        </div>
+      </div>
+    </section>
+  </nav>
+  {{> yield}}
 </template>
