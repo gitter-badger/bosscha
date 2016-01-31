@@ -3,20 +3,20 @@ Template.editor.events({
     event.preventDefault();
 
     var title = event.target.title.value;
-    var text  = event.target.description.value;
+    var content = event.target.content.value;
 
     var callback = function(error, result) {
       event.target.title.value = '';
-      event.target.description.value = '';
+      event.target.content.value = '';
+
       $('#markdown-preview').html("");
 
-      var editor = $('#markdown-editor').next('.CodeMirror')[0].CodeMirror;
-
+      editor = $('#markdown-editor').next('.CodeMirror')[0].CodeMirror;
       editor.setValue('');
       editor.clearHistory();
     };
 
-    Meteor.call('savePost', title, text, callback);
+    Meteor.call('savePost', title, content, callback);
   }
 });
 

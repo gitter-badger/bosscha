@@ -1,11 +1,7 @@
 Template.auth.helpers({
-    loginConfigured: function () {
-      return Accounts.loginServicesConfigured();
-    },
-
-    username: function() {
-      return Meteor.user().profile.username;
-    }
+  username: function() {
+    return Meteor.user().profile.username;
+  }
 });
 
 Template.auth.events({

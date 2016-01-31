@@ -6,9 +6,10 @@ Meteor.methods({
       authorId: this.userId,
       title: title,
       content: content,
-      contentHtml: marked(contentHtml)
+      contentHtml: marked(content)
     });
   },
+
   removePost: function(id) {
     Posts.remove({ _id: id, authorId: this.userId });
   }
