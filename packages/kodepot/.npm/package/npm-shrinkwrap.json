@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "hashids": {
+      "version": "1.0.2"
+    },
     "highlight.js": {
       "version": "9.1.0"
     }

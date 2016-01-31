@@ -10,7 +10,7 @@ Meteor.startup(function() {
   Meteor.users._ensureIndex('profile.username', { unique: 1, sparse: 1});
   Meteor.users._ensureIndex('profile.email', { unique: 1, sparse: 1});
 
-  Posts._ensureIndex({ authorId: 1 });
+  Posts._ensureIndex({ authorId: 1, shortCode: 1 });
 });
 
 Accounts.onCreateUser(function (options, user) {
