@@ -16,7 +16,6 @@ standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
-iron:router
 kodepot:container
 accounts-github
 alanning:roles
@@ -27,10 +26,12 @@ meteorhacks:kadira
 mquandalle:bower
 kadira:debug
 meteorhacks:subs-manager
-lookback:seo
 dfischer:prerenderio
-zimme:iron-router-auth
 meteorhacks:fast-render
 nitrolabs:cdn
 templates:forms
 aldeed:simple-schema
+kadira:flow-router
+kadira:dochead
+kadira:blaze-layout
+reactive-var

@@ -19,5 +19,9 @@ Template.auth.events({
       PostSubs.clear();
       Router.go("/");
     });
+  },
+
+  'click .action-new-post': function() {
+    FlowRouter.go("post.new");
   }
 });

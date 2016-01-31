@@ -20,7 +20,7 @@ Template.editor.events({
   }
 });
 
-Template.editor.rendered = function() {
+Template.editor.onRendered(function() {
   var editor = CodeMirror.fromTextArea(this.find('#markdown-editor'), {
     lineNumbers: true,
     autofocus: true,
@@ -31,11 +31,17 @@ Template.editor.rendered = function() {
   editor.on("change", function(object) {
     $('#markdown-preview').html(marked(object.getValue()));
   });
-}
+});
 
 Template.postList.helpers({
   isRemovable: function() {
     return this.authorId == Meteor.userId();
+  }
+});
+
+Template.postList.events({
+  'click .action-post-show': function() {
+    FlowRouter.go("post.show", { id: this._id });
   }
 });
 
@@ -57,3 +63,33 @@ Template.postRemove.events({
   }
 });
 
+Template.postNew.onRendered(function() {
+  DocHead.setTitle("Postingan Baru - Kodepot");
+});
+
+Template.post.onCreated(function() {
+  var self = this;
+  self.ready = new ReactiveVar();
+  self.autorun(function() {
+    var postId = FlowRouter.getParam('id');
+    var handle = PostSubs.subscribe('post', postId);
+    self.ready.set(handle.ready());
+  });
+});
+
+Template.post.onRendered(function() {
+  if (this.ready.get()) {
+    var post = Posts.findOne({_id: FlowRouter.getParam('id')}, { fields: {
+      title: 1}});
+    DocHead.setTitle(post.title + " - Kodepot");
+  }
+});
+
+Template.post.helpers({
+  isReady: function() {
+    return Template.instance().ready.get();
+  },
+  post: function() {
+    return Posts.findOne({_id: FlowRouter.getParam('id')});
+  }
+});

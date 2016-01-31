@@ -1,6 +1,12 @@
+<template name="postNew">
+  <section class="container" id="post-editor">
+    {{> editor}}
+  </section>
+</template>
+
 <template name="postList">
   <li>
-    <a href="{{pathFor route='post.show'}}">{{title}}</a>
+    <a class="action-post-show" href="/+{{_id}}">{{title}}</a>
     {{#if isRemovable}}
       {{> postRemove}}
     {{/if}}
@@ -9,12 +15,6 @@
 
 <template name="postRemove">
   <a class="remove-post action-link">[remove]</a>
-</template>
-
-<template name="postNew">
-  <section class="container" id="post-editor">
-    {{> editor}}
-  </section>
 </template>
 
 <template name="editor">
@@ -35,8 +35,14 @@
 
 <template name="post">
   <section class="container" id="article">
-    <h1>{{title}}</h1>
-    <article>{{{contentHtml}}}</article>
+    {{#if isReady}}
+      {{#with post}}
+        <h1>{{title}}</h1>
+        <article>{{{contentHtml}}}</article>
+      {{/with}}
+    {{else}}
+      {{> loading}}
+    {{/if}}
   </section>
 </template>
 

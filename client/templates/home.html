@@ -1,7 +1,11 @@
 <template name="home">
   <section class="container" id="home">
-    {{#each posts}}
-      {{> postList}}
-    {{/each}}
+    {{#if isReady}}
+      {{#each posts}}
+        {{> postList}}
+      {{/each}}
+    {{else}}
+      {{> loading}}
+    {{/if}}
   </section>
 </template>

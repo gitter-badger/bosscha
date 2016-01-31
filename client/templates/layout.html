@@ -1,9 +1,9 @@
-<template name="layout">
+<template name="mainLayout">
   <nav class="navigation">
     <section class="container">
       <div class="row">
         <div class="column column-50">
-          <a class="site-title" href="/">
+          <a class="site-title action-home" href="/">
             <h1 class="title">Kodepot</h1>
           </a>
         </div>
@@ -13,5 +13,5 @@
       </div>
     </section>
   </nav>
-  {{> yield}}
+  {{> Template.dynamic template=content}}
 </template>

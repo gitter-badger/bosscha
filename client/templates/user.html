@@ -1,9 +1,16 @@
 <template name="user">
   <section class="container" id="user">
-    <ul>
-    {{#each posts}}
-      {{> postList}}
-    {{/each}}
-    </ul>
+    {{#if Template.subscriptionsReady}}
+      @{{user.profile.username}}
+      {{#if isReady}}
+        <ul>
+        {{#each posts}}
+          {{> postList}}
+        {{/each}}
+        </ul>
+      {{/if}}
+    {{else}}
+      {{> loading}}
+    {{/if}}
   </section>
 </template>
