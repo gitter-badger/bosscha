@@ -32,3 +32,5 @@ dfischer:prerenderio
 zimme:iron-router-auth
 meteorhacks:fast-render
 nitrolabs:cdn
+templates:forms
+aldeed:simple-schema

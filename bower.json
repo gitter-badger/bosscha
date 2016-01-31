@@ -6,12 +6,14 @@
     "jsdiff": "2.2.1",
     "sweetalert": "1.1.3",
     "codemirror": "5.11.0",
-    "highlightjs": "9.1.0"
+    "highlightjs": "9.1.0",
+    "spinkit": "1.2.5"
   },
   "overrides": {
     "milligram": { "arch": ["client"] },
     "marked": { "arch": ["client", "server"] },
     "sweetalert": { "arch": ["client"] },
+    "spinkit": { "arch": ["client"] },
     "codemirror": {
       "main": [
         "lib/codemirror.js",
