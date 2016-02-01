@@ -63,22 +63,9 @@ Template.postRemove.events({
   }
 });
 
-Template.post.onCreated(function() {
-  var self = this;
-  self.ready = new ReactiveVar();
-  self.postReady = function() {
-    return self.ready.get();
-  };
-  self.autorun(function() {
-    var postId = FlowRouter.getParam('_id');
-    var handle = PostSubs.subscribe('post', postId);
-    self.ready.set(handle.ready());
-  });
-});
-
 Template.post.helpers({
   postReady: function() {
-    return Template.instance().postReady();
+    return FlowRouter.subsReady("post");
   },
   post: function() {
     return Posts.findOne({_id: FlowRouter.getParam('_id')});
