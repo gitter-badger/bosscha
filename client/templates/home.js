@@ -7,10 +7,6 @@ Template.home.onCreated(function() {
   });
 });
 
-Template.home.onRendered(function() {
-  DocHead.setTitle("Kodepot: bicara <kode>, bicara Indonesia");
-});
-
 Template.home.helpers({
   isReady: function() {
     return Template.instance().ready.get();

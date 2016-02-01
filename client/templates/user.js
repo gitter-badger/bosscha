@@ -9,13 +9,6 @@ Template.user.onCreated(function() {
   });
 });
 
-Template.user.onRendered(function() {
-  if (this.subscriptionsReady) {
-    var user = Meteor.users.findOne({ 'profile.username': FlowRouter.getParam('username') }, { fields: { 'profile.name': 1, 'profile.username': 1 } });
-    DocHead.setTitle(user.profile.name + ' (' + user.profile.username + ") - Kodepot");
-  }
-});
-
 Template.user.helpers({
   isReady: function() {
     return Template.instance().ready.get();

@@ -63,10 +63,6 @@ Template.postRemove.events({
   }
 });
 
-Template.postNew.onRendered(function() {
-  DocHead.setTitle("Postingan Baru - Kodepot");
-});
-
 Template.post.onCreated(function() {
   var self = this;
   self.ready = new ReactiveVar();
@@ -74,17 +70,10 @@ Template.post.onCreated(function() {
     return self.ready.get();
   };
   self.autorun(function() {
-    var postId = FlowRouter.getParam('id');
+    var postId = FlowRouter.getParam('_id');
     var handle = PostSubs.subscribe('post', postId);
     self.ready.set(handle.ready());
   });
-});
-
-Template.post.onRendered(function() {
-  if (this.postReady()) {
-    var post = Posts.findOne({_id: FlowRouter.getParam('id')}, { fields: { title: 1}});
-    DocHead.setTitle(post.title + " - Kodepot");
-  }
 });
 
 Template.post.helpers({
@@ -92,6 +81,6 @@ Template.post.helpers({
     return Template.instance().postReady();
   },
   post: function() {
-    return Posts.findOne({_id: FlowRouter.getParam('id')});
+    return Posts.findOne({_id: FlowRouter.getParam('_id')});
   }
 });
