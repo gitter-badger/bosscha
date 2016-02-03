@@ -1,42 +1,49 @@
 <template name="postList">
-  <li>
+  <td>
     <a href="{{pathFor route='post.show'}}">{{title}}</a>
-    {{#if isRemovable}}
-      {{> postRemove}}
-    {{/if}}
-  </li>
+  </td>
+  {{#if isRemovable}}
+    <td>{{> postRemove}}</td>
+  {{/if}}
 </template>
 
 <template name="postRemove">
-  <a class="remove-post action-link">[remove]</a>
+  <a class="small alert button remove-post">remove</a>
 </template>
 
 <template name="postNew">
-  <section class="container" id="post-editor">
+  <section id="post-editor">
     {{> editor}}
   </section>
 </template>
 
 <template name="editor">
-  <h3>New Post</h3>
-  <div class="row">
-    <div class="column column-50">
-      <form class="new-post">
-        <input type="text" name="title">
-        <textarea id="markdown-editor" name="content"></textarea>
+  <form class="new-post">
+    <div class="column expanded row">
+      <input type="text" name="title" placeholder="Put the Title Here!" class="post-title">
+    </div>
+    <div class="expanded row">
+      <div class="large-6 columns">
+        <textarea id="markdown-editor" name="content" placeholder="Write your awesome content here!"></textarea>
+      </div>
+      <div class="large-6 columns">
+        <section id="post-preview"></section>
+      </div>
+    </div>
+    <div class="expanded row">
+      <div class="large-4 columns">
         <input type="submit" class="button" value="Save">
-      </form>
+      </div>
     </div>
-    <div class="column column-50">
-      <section id="markdown-preview"></section>
-    </div>
-  </div>
+  </form>
 </template>
 
 <template name="post">
-  <section class="container" id="article">
-    <h1>{{title}}</h1>
-    <article>{{{contentHtml}}}</article>
+  <section class="row" id="article">
+    <div class="large-8 large-offset-2 columns">
+      <h1>{{title}}</h1>
+      <article>{{{contentHtml}}}</article>
+    </div>
   </section>
 </template>
 

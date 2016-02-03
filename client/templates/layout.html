@@ -1,17 +1,6 @@
 <template name="layout">
-  <nav class="navigation">
-    <section class="container">
-      <div class="row">
-        <div class="column column-50">
-          <a class="site-title" href="/">
-            <h1 class="title">Kodepot</h1>
-          </a>
-        </div>
-        <div class="column column-50 float-right">
-          {{> auth}}
-        </div>
-      </div>
-    </section>
-  </nav>
+  <div class="expanded row">
+    {{> navigation }}
+  </div>
   {{> yield}}
 </template>

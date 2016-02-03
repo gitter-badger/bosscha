@@ -9,7 +9,7 @@ Template.editor.events({
       event.target.title.value = '';
       event.target.content.value = '';
 
-      $('#markdown-preview').html("");
+      $('#post-preview').html("");
 
       editor = $('#markdown-editor').next('.CodeMirror')[0].CodeMirror;
       editor.setValue('');
@@ -22,14 +22,17 @@ Template.editor.events({
 
 Template.editor.rendered = function() {
   var editor = CodeMirror.fromTextArea(this.find('#markdown-editor'), {
-    lineNumbers: true,
     autofocus: true,
+    lineNumbers: true,
+    lineWrapping: true,
+    foldGutter: true,
+    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
     mode: "gfm",
-    theme: "paraiso-dark"
+    theme: "elegant"
   });
 
   editor.on("change", function(object) {
-    $('#markdown-preview').html(marked(object.getValue()));
+    $('#post-preview').html(marked(object.getValue()));
   });
 }
 

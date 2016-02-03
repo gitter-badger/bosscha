@@ -1,7 +1,15 @@
 <template name="home">
-  <section class="container" id="home">
-    {{#each posts}}
-      {{> postList}}
-    {{/each}}
-  </section>
+  <div class="row" id="home">
+    <div class="large-8 large-offset-2 columns">
+      <table class="hover">
+        <tbody>
+        {{#each posts}}
+          <tr>
+            {{> postList}}
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
 </template>

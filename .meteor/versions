@@ -32,6 +32,7 @@ ejson@1.0.7
 email@1.0.8
 es5-shim@4.1.14
 fastclick@1.0.7
+fourseven:scss@3.4.1
 geojson-utils@1.0.4
 github@1.1.4
 hot-code-push@1.0.0
@@ -109,3 +110,4 @@ webapp@1.2.3
 webapp-hashing@1.0.5
 yasinuslu:blaze-meta@0.3.3
 zimme:iron-router-auth@3.1.0
+zurb:foundation-sites@6.1.2

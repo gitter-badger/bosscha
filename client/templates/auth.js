@@ -21,3 +21,8 @@ Template.auth.events({
     });
   }
 });
+
+Template.auth.onRendered(function() {
+  var menu = new Foundation.DropdownMenu(this.$(".dropdown.menu"), {
+  });
+});

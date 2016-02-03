@@ -1,9 +1,15 @@
 <template name="user">
-  <section class="container" id="user">
-    <ul>
-    {{#each posts}}
-      {{> postList}}
-    {{/each}}
-    </ul>
-  </section>
+  <div class="row" id="user">
+    <div class="large-8 large-offset-2 columns">
+      <table class="hover">
+        <tbody>
+        {{#each posts}}
+          <tr>
+            {{> postList}}
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
 </template>

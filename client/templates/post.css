@@ -1,0 +1,17 @@
+#post-preview {
+  border-left: dashed 2px #d1d1d1;
+  padding-left: 1.2rem;
+}
+
+input.post-title,
+input.post-title:focus {
+  border: none;
+  box-shadow: none;
+  font-size: 1.6rem;
+  border-bottom: solid 1px #eee;
+  padding-bottom: 30px;
+}
+
+input.post-title:focus {
+  color: #9b4dca;
+}
