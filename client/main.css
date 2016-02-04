@@ -12,6 +12,11 @@ pre {
   margin-bottom: 15px;
 }
 
+code {
+  border: none;
+  background: #f4f5f6;
+}
+
 pre > code {
   background: transparent;
   border-radius: 0;
