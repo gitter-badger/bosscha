@@ -15,4 +15,5 @@ Package.onUse(function(api) {
 
   api.export('hljs', 'server'); // hljs for client will be handled by `bower`
   api.export('huid', 'server');
+  api.export('Kodepot', 'server');
 });
