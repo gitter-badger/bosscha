@@ -1,7 +1,6 @@
 <template name="postList">
-  <td>
-    <a href="{{pathFor route='post.show'}}">{{title}}</a>
-  </td>
+  <td><a href="{{pathFor route='post.show'}}">{{title}}</a></td>
+  <td><em>{{relativeDate createdAt}}</em></td>
   {{#if isRemovable}}
     <td>{{> postRemove}}</td>
   {{/if}}
@@ -41,7 +40,13 @@
 <template name="post">
   <section class="row" id="article">
     <div class="large-8 large-offset-2 columns">
-      <h1>{{title}}</h1>
+      <header class="post-header text-center">
+        <h1>{{title}}</h1>
+        <section class="post-metadata">
+          <h6 class="subheader">{{formatDate createdAt}}</h6>
+        </section>
+      </header>
+      <hr class="separator">
       <article>{{{contentHtml}}}</article>
     </div>
   </section>

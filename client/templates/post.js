@@ -60,3 +60,5 @@ Template.postRemove.events({
   }
 });
 
+Template.post.helpers({
+});

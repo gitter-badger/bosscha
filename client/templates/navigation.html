@@ -1,12 +1,12 @@
 <template name="navigation">
   <nav class="main-navigation">
     <div class="row">
-      <div class="small-4 columns">
-        <ul class="menu">
-          <li class="site-title"><a href="/">Kodepot</a></li>
-        </ul>
+      <div class="small-12 large-8 large-offset-2 columns">
+        <div class="small-4 columns site-title">
+          <h1><a href="/">Kodepot</a></h1>
+        </div>
+        {{> auth}}
       </div>
-      {{> auth}}
     </div>
   </nav>
 </template>

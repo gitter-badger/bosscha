@@ -1,9 +1,4 @@
 /** vendor overrides **/
-.sweet-alert button {
-  padding-top: 0px;
-  height: 2.3em;
-}
-
 .CodeMirror {
   min-height: 200px;
   height: auto;
@@ -23,4 +18,10 @@ pre > code {
   display: block;
   padding: .5rem 1.5rem;
   white-space: pre;
+}
+
+hr.separator {
+  width: 50%;
+  border: none;
+  border-bottom: dotted 1px #d1d1d1;
 }
