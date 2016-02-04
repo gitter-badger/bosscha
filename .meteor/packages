@@ -36,3 +36,4 @@ templates:forms
 aldeed:simple-schema
 zurb:foundation-sites
 momentjs:moment
+underscorestring:underscore.string
