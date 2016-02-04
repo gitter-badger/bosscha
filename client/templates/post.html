@@ -1,5 +1,5 @@
 <template name="postList">
-  <td><a href="{{pathFor route='post.show'}}">{{title}}</a></td>
+  <td><a href="{{pathFor route='post.show' _id=shortCode}}">{{title}}</a></td>
   <td><em>{{relativeDate createdAt}}</em></td>
   {{#if isRemovable}}
     <td>{{> postRemove}}</td>

@@ -12,13 +12,3 @@ Kodepot = {
     return code.encode(value);
   }
 }
-
-huid = function(key) {
-  if (key === undefined) {
-    key = Meteor.uuid();
-  }
-
-  var uuid = new Hashids(salt, 6);
-
-  return uuid.encode(1001);
-}
