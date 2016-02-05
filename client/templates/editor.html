@@ -1,0 +1,6 @@
+<template name="editor">
+  {{#postFormBlock schema=schema action=action data=data}}
+    {{> titleInput field='title'}}
+    {{> markdownInput field='content'}}
+  {{/postFormBlock}}
+</template>

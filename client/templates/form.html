@@ -1,0 +1,31 @@
+<template name="titleInput">
+  <div class="column expanded row">
+    <input type="text" class="post-title reactive-element" name="{{field}}" placeholder="{{instructions}}" value="{{value}}">
+    {{#if changed}}
+      {{#if errorMessage}}<p class="help-text alert">{{errorMessage}}</p>{{/if}}
+    {{/if}}
+  </div>
+</template>
+
+<template name="markdownInput">
+  <div class="expanded row">
+    <div class="large-6 columns">
+      <textarea class="markdown-editor reactive-element" name="{{field}}" placeholder="{{instructions}}">{{value}}</textarea>
+      {{#if errorMessage}}<p class="help-text alert">{{errorMessage}}</p>{{/if}}
+    </div>
+    <div class="large-6 columns">
+      <section class="markdown-preview"></section>
+    </div>
+  </div>
+</template>
+
+<template name="postFormBlock">
+  <form>
+    {{> UI.contentBlock data=data schema=schema context=context}}
+    <div class="expanded row">
+      <div class="large-4 columns">
+        <input type="submit" class="button" value="Save">
+      </div>
+    </div>
+  </form>
+</template>
