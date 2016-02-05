@@ -3,6 +3,7 @@
   <td><em>{{relativeDate createdAt}}</em></td>
   {{#if isRemovable}}
     <td>{{> postRemove}}</td>
+    <td>{{> postEditButton}}</td>
   {{/if}}
 </template>
 
@@ -10,7 +11,17 @@
   <a class="small alert button remove-post">remove</a>
 </template>
 
+<template name="postEditButton">
+  <a href="{{pathFor 'post.edit' _id=shortCode}}" class="small button remove-post">edit</a>
+</template>
+
 <template name="postNew">
+  <section id="post-editor">
+    {{> editor}}
+  </section>
+</template>
+
+<template name="postEdit">
   <section id="post-editor">
     {{> editor}}
   </section>

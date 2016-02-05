@@ -14,11 +14,9 @@ Template.editor.helpers({
   },
   action: function() {
     return function(elements, callbacks, changed) {
+      var postId  = this._id;
       var title   = elements[0].value;
       var content = elements[1].value;
-
-      console.log(title);
-      console.log(content);
 
       var saveCallback = function(error, result) {
         if (error) {
@@ -29,7 +27,8 @@ Template.editor.helpers({
         }
       };
 
-      Meteor.call('savePost', title, content, saveCallback);
+      Meteor.call('savePost', postId, title, content, saveCallback);
     }
   }
 });
+

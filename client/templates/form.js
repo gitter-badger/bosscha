@@ -23,9 +23,8 @@ ReactiveForms.createElement({
     preview.html('');
   },
   rendered: function() {
-    var self = this;
-
-    var editor = CodeMirror.fromTextArea(self.find('.markdown-editor'), {
+    var preview = this.$('.markdown-preview');
+    var editor  = CodeMirror.fromTextArea(this.find('.markdown-editor'), {
       autofocus: true,
       lineNumbers: true,
       lineWrapping: true,
@@ -35,8 +34,10 @@ ReactiveForms.createElement({
       theme: "elegant"
     });
 
+    preview.html(marked(editor.getValue()));
+
     editor.on("change", function(object) {
-      self.$('.markdown-preview').html(marked(object.getValue()));
+      preview.html(marked(object.getValue()));
     });
   }
 });
