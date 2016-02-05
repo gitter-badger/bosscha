@@ -21,3 +21,9 @@ Template.postRemove.events({
     });
   }
 });
+
+Template.post.helpers({
+  postTags: function() {
+    return s.toSentence(this.tags);
+  }
+});

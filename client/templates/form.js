@@ -12,6 +12,14 @@ ReactiveForms.createElement({
 });
 
 ReactiveForms.createElement({
+  template: "tagInput",
+  validationEvent: 'keyup',
+  reset: function(element) {
+    $(element).val("");
+  }
+});
+
+ReactiveForms.createElement({
   template: "markdownInput",
   reset: function(element) {
     textarea   = this.$(".markdown-editor");

@@ -1,6 +1,14 @@
 <template name="editor">
   {{#postFormBlock schema=schema action=action data=this}}
     {{> titleInput field='title'}}
+    <div class="expanded row">
+      <div class="small-6 columns">
+        {{> tagInput field='tags'}}
+      </div>
+      <div class="small-6 columns text-right">
+        <h6 class="subheader">{{today}}</h6>
+      </div>
+    </div>
     {{> markdownInput field='content'}}
   {{/postFormBlock}}
 </template>

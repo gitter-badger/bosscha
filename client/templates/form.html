@@ -1,6 +1,6 @@
 <template name="titleInput">
   <div class="column expanded row">
-    <input type="text" class="post-title reactive-element" name="{{field}}" placeholder="{{instructions}}" value="{{value}}">
+    <input type="text" class="title-editor reactive-element" name="{{field}}" placeholder="{{instructions}}" value="{{value}}">
     {{#if changed}}
       {{#if errorMessage}}<p class="help-text alert">{{errorMessage}}</p>{{/if}}
     {{/if}}
@@ -17,6 +17,13 @@
       <section class="markdown-preview"></section>
     </div>
   </div>
+</template>
+
+<template name="tagInput">
+  <input type="text" class="tag-editor reactive-element" name="{{field}}" placeholder="{{instructions}}" value="{{value}}">
+  {{#if changed}}
+    {{#if errorMessage}}<p class="help-text alert">{{errorMessage}}</p>{{/if}}
+  {{/if}}
 </template>
 
 <template name="postFormBlock">
