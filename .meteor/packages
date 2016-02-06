@@ -26,7 +26,6 @@ matb33:collection-hooks
 meteorhacks:kadira
 mquandalle:bower
 kadira:debug
-meteorhacks:subs-manager
 lookback:seo
 dfischer:prerenderio
 zimme:iron-router-auth

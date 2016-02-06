@@ -24,6 +24,10 @@ Template.postRemove.events({
 
 Template.post.helpers({
   postTags: function() {
-    return s.toSentence(this.tags);
+    if (this.tags === undefined) {
+      return 'untagged';
+    } else {
+      return s.toSentence(this.tags);
+    }
   }
 });
