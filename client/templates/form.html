@@ -9,11 +9,11 @@
 
 <template name="markdownInput">
   <div class="expanded row">
-    <div class="large-6 columns">
+    <div class="small-12 large-6 columns">
       <textarea class="markdown-editor reactive-element" name="{{field}}" placeholder="{{instructions}}">{{value}}</textarea>
       {{#if errorMessage}}<p class="help-text alert">{{errorMessage}}</p>{{/if}}
     </div>
-    <div class="large-6 columns">
+    <div class="small-12 large-6 columns">
       <section class="markdown-preview"></section>
     </div>
   </div>
