@@ -38,3 +38,10 @@ hr.separator {
 .help-text.alert {
   color: #ec5840;
 }
+
+.connection-alert {
+  display: block;
+  float: left;
+  margin-top: 3px;
+  margin-right: 5px;
+}

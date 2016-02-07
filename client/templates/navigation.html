@@ -3,7 +3,12 @@
     <div class="row">
       <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
         <div class="small-4 columns site-title">
-          <h1><a href="/">Kodepot</a></h1>
+          <h1>
+            <a href="/">Kodepot</a>
+            {{#unless isConnected}}
+                <strong class="alert connection-alert label">!!!</strong>
+            {{/unless}}
+          </h1>
         </div>
         {{> auth}}
       </div>
