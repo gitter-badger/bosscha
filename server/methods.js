@@ -1,18 +1,17 @@
 Meteor.methods({
   savePost: function(postId, title, content, tagString) {
     var tags = s(tagString).split(',');
-    var contentHtml = marked(content);
-    var contentHtml = sanitizeHtml(contentHtml);
+    var cleanHtml = sanitizeHtml( marked(content));
 
     if (postId === null) {
       Posts.insert({
         authorId: this.userId,
-        title: title, content: content, contentHtml: contentHtml, tags: tags
+        title: title, content: content, contentHtml: cleanHtml, tags: tags
       });
     } else {
       Posts.update(
         {_id: postId},
-        {$set: {title: title, content: content, contentHtml: contentHtml, tags: tags}}
+        {$set: {title: title, content: content, contentHtml: cleanHtml, tags: tags}}
       );
     }
   },
