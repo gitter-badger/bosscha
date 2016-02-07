@@ -1,7 +1,8 @@
 Meteor.methods({
   savePost: function(postId, title, content, tagString) {
     var tags = s(tagString).split(',');
-    var contentHtml = marked(content, {sanitize: true});
+    var contentHtml = marked(content);
+    var contentHtml = sanitizeHtml(contentHtml);
 
     if (postId === null) {
       Posts.insert({

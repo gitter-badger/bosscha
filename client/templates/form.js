@@ -42,10 +42,16 @@ ReactiveForms.createElement({
       theme: "elegant"
     });
 
-    preview.html(marked(editor.getValue()));
+    var valueHtml = marked(editor.getValue());
+    var valueHtml = sanitizeHtml(valueHtml);
+
+    preview.html(valueHtml);
 
     editor.on("change", function(object) {
-      preview.html(marked(object.getValue(), {sanitize: true}));
+      var valueHtml = marked(object.getValue());
+      var valueHtml = sanitizeHtml(valueHtml);
+
+      preview.html(valueHtml);
     });
   }
 });

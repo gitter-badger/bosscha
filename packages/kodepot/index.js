@@ -1,5 +1,6 @@
 hljs = Npm.require("highlight.js");
 Hashids = Npm.require("hashids");
+sanitizeHtml = Npm.require('sanitize-html');
 
 Kodepot = {
   shortCode: function(salt, value) {
@@ -11,4 +12,4 @@ Kodepot = {
 
     return code.encode(value);
   }
-}
+};
