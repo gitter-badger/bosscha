@@ -22,7 +22,7 @@ ReactiveForms.createElement({
 ReactiveForms.createElement({
   template: "markdownInput",
   reset: function(element) {
-    textarea   = this.$(".markdown-editor");
+    textarea = this.$(".markdown-editor");
     codemirror = textarea.next('.CodeMirror')[0].CodeMirror;
     codemirror.setValue('');
     codemirror.clearHistory();
@@ -32,7 +32,7 @@ ReactiveForms.createElement({
   },
   rendered: function() {
     var preview = this.$('.markdown-preview');
-    var editor  = CodeMirror.fromTextArea(this.find('.markdown-editor'), {
+    var editor = CodeMirror.fromTextArea(this.find('.markdown-editor'), {
       autofocus: true,
       lineNumbers: true,
       lineWrapping: true,
@@ -45,7 +45,7 @@ ReactiveForms.createElement({
     preview.html(marked(editor.getValue()));
 
     editor.on("change", function(object) {
-      preview.html(marked(object.getValue()));
+      preview.html(marked(object.getValue(), {sanitize: true}));
     });
   }
 });
