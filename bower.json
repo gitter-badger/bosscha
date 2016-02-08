@@ -15,12 +15,12 @@
     "codemirror": {
       "main": [
         "lib/codemirror.js",
-	"addon/fold/foldcode.js",
-	"addon/fold/foldgutter.js",
-	"addon/fold/brace-fold.js",
-	"addon/fold/xml-fold.js",
-	"addon/fold/markdown-fold.js",
-	"addon/fold/comment-fold.js",
+        "addon/fold/foldcode.js",
+        "addon/fold/foldgutter.js",
+        "addon/fold/brace-fold.js",
+        "addon/fold/xml-fold.js",
+        "addon/fold/markdown-fold.js",
+        "addon/fold/comment-fold.js",
         "addon/mode/overlay.js",
 	"addon/display/placeholder.js",
         "mode/xml/xml.js",
